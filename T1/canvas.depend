@@ -257,3 +257,13 @@
 1193164156 c:\users\maida\documents\cg\t1\src\relogio.h
 	"gl_canvas2d.h"
 
+1651444385 source:c:\users\maida\documents\cg\t1\src\controladorbotoes.cpp
+	"controladorBotoes.h"
+
+1651445016 c:\users\maida\documents\cg\t1\src\controladorbotoes.h
+	<iostream>
+	<stdio.h>
+	"botao.h"
+	"gl_canvas2d.h"
+	"bmp.h"
+
