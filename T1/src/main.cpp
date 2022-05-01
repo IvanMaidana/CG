@@ -26,7 +26,7 @@
 
 #include "Botao.h"
 //#include "mouse.h"
-#include"gerenciador.h"
+//#include"gerenciador.h"
 Bmp* img01;
 
 //variavel global para selecao do que sera exibido na canvas.
