@@ -232,7 +232,7 @@
 
 1589217858 c:\users\maida\documents\cg\t1\src\vector2.h
 
-1651501890 source:c:\users\maida\documents\cg\t1\src\main.cpp
+1651502393 source:c:\users\maida\documents\cg\t1\src\main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<math.h>
@@ -243,6 +243,7 @@
 	"bmp.h"
 	"Botao.h"
 	"controladorBotoes.h"
+	"ControladorImagem.h"
 
 1651439301 c:\users\maida\documents\cg\t1\src\botao.h
 	"gl_canvas2d.h"
@@ -267,4 +268,11 @@
 	"botao.h"
 	"gl_canvas2d.h"
 	"bmp.h"
+
+1651501485 source:c:\users\maida\documents\cg\t1\src\controladorimagem.cpp
+	"ControladorImagem.h"
+
+1651502133 c:\users\maida\documents\cg\t1\src\controladorimagem.h
+	"bmp.h"
+	"gl_canvas2d.h"
 

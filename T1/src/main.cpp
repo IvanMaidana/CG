@@ -26,6 +26,7 @@
 
 #include "Botao.h"
 #include "controladorBotoes.h"
+#include "ControladorImagem.h"
 //#include "mouse.h"
 //#include"gerenciador.h"
 Bmp* img01;
@@ -35,6 +36,7 @@ Bmp* img01;
 int opcao  = 50;
 int screenWidth = 700, screenHeight = 700; //largura e altura inicial da tela . Alteram com o redimensionamento de tela.
 
+ControladorImagem *imagem = new ControladorImagem;
 GerenciadorBotoes *botao = new GerenciadorBotoes;
 int mouseX = 0;  //variaveis globais do mouse para poder exibir dentro da render().
 int mouseY = 0;
@@ -44,12 +46,7 @@ int print_x = 0, print_y = 0;
 bool imgSeguirMouse = false;
 int offsetx, offsety; //faz com que a imagem não seja desenhada sempre partindo da coordenada do mouse
 
-
-//funcao chamada continuamente. Deve-se controlar o que desenhar por meio de variaveis globais
-//Todos os comandos para desenho na canvas devem ser chamados dentro da render().
-//Deve-se manter essa função com poucas linhas de codigo.
-
-void desenhaImagem()
+/*void desenhaImagem()
 {
     // int print_x = 0;
     //int print_y = 0;
@@ -63,7 +60,7 @@ void desenhaImagem()
     uchar* data = img01->getImage();
     int height = img01->height;
     int width = img01->width;
-    int bytesPerLine = img01->bytesPerLine;
+    int bytesPerLine = img01->bytesPerLine;*/
 
     // FLIP X
    /* for(int y=0; y<height; y++)
@@ -95,7 +92,7 @@ void desenhaImagem()
         print_y--;
     }*/
 
-    print_y = 0;
+    //print_y = 0;
 /* // ESCALA 1/2
     for(int y=0; y<height; y+=2)
     {
@@ -110,7 +107,7 @@ void desenhaImagem()
         print_y++;
     }*/
 
-    for(int y=0; y<height; y++)
+    /*for(int y=0; y<height; y++)
     {
         for(int x=0; x<width*3; x+=3)
         {
@@ -121,9 +118,9 @@ void desenhaImagem()
         }
         print_x = 0;
     }
-}
+}*/
 
-void verifica_clickImagem()
+/*void verifica_clickImagem()
 {
     if(state1  == 0)
     {
@@ -142,16 +139,17 @@ void verifica_clickImagem()
         imgSeguirMouse = false;
         puts("Soltar");
     }
-}
+}*/
 
 void render()
 {
     //CV::text(200,650,"Trabalho 1 CG");
 
-    desenhaImagem();
+    /*desenhaImagem();
 
-    verifica_clickImagem();
+    verifica_clickImagem();*/
 
+    imagem->Render(mouseX, mouseY, state1);
     botao->Render(mouseX, mouseY, state1);
 }
 
@@ -194,9 +192,10 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
 
 int main()
 {
-    CV::init(&screenWidth, &screenHeight, "Titulo da Janela: Canvas 2D - Pressione 1, 2, 3");
+    imagem->InitCanvas();
+    /*CV::init(&screenWidth, &screenHeight, "Titulo da Janela: Canvas 2D - Pressione 1, 2, 3");
     img01= new Bmp(".\\T1\\resources\\img01.bmp");
-    img01->convertBGRtoRGB();
+    img01->convertBGRtoRGB();*/
 
 
     botao->InitCanvas();

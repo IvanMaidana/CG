@@ -25,7 +25,4 @@ public:
     int getMouseX();
     void InitCanvas();
 };
-
-
-
 #endif // CONTROLAIMAGEM_H_INCLUDED
