@@ -9,17 +9,15 @@
 #include"bmp.h"
 //#include "Mouse.h"
 
-class Gerenciador
+class GerenciadorBotoes
 {
 private:
-    Bmp *img01;
     void desenhaBotoes();
     void verificaMouseEmCima_botoes();
     void verificaclick();
     int getMouseState();
     int getMouseY();
     int getMouseX();
-
     int opcao = 50;             // variavel para selecao do que sera exibido na canvas.
     // int mx, my;                //variaveis do mouse para poder exibir dentro da render().
 
@@ -30,8 +28,6 @@ public:
     Botao   *bt3 = NULL;
     int mouseX, mouseY, mouseState;
     // Bmp* img;                // imagem a ser manipulada
-    int screenWidth, screenHeight;
-    Gerenciador();
     void InitCanvas();
     void Render(int mouse_x, int mouse_y, int mouse_state);
     void Keyboard(int key);

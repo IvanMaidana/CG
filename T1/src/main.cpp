@@ -25,6 +25,7 @@
 #include "bmp.h"
 
 #include "Botao.h"
+#include "controladorBotoes.h"
 //#include "mouse.h"
 //#include"gerenciador.h"
 Bmp* img01;
@@ -34,6 +35,7 @@ Bmp* img01;
 int opcao  = 50;
 int screenWidth = 700, screenHeight = 700; //largura e altura inicial da tela . Alteram com o redimensionamento de tela.
 
+GerenciadorBotoes *botao = new GerenciadorBotoes;
 int mouseX = 0;  //variaveis globais do mouse para poder exibir dentro da render().
 int mouseY = 0;
 int state1; // clicou
@@ -150,7 +152,7 @@ void render()
 
     verifica_clickImagem();
 
-    //gen->Render(mouseX, mouseY, state1);
+    botao->Render(mouseX, mouseY, state1);
 }
 
 //funcao chamada toda vez que uma tecla for pressionada.
@@ -197,7 +199,7 @@ int main()
     img01->convertBGRtoRGB();
 
 
-    //gen->InitCanvas();
+    botao->InitCanvas();
 
     CV::run();
 }

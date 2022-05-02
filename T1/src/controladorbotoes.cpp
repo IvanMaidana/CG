@@ -1,12 +1,7 @@
 #include"controladorBotoes.h"
 
 // Funçao contrutora da class Gerenciador responsavel por inicializar parametros
-Gerenciador :: Gerenciador()
-{
-    screenWidth = 700;
-    screenHeight = 700;
-}
-void Gerenciador::Render(int mouse_x, int mouse_y, int mouse_state)
+void GerenciadorBotoes::Render(int mouse_x, int mouse_y, int mouse_state)
 {
     mouseX = mouse_x;
     mouseY = mouse_y;
@@ -17,7 +12,7 @@ void Gerenciador::Render(int mouse_x, int mouse_y, int mouse_state)
     verificaclick();
 }
 
-void Gerenciador::desenhaBotoes()
+void GerenciadorBotoes::desenhaBotoes()
 {
     bt->Render();
     bt1->Render();
@@ -25,22 +20,22 @@ void Gerenciador::desenhaBotoes()
     bt3->Render();
 }
 
-int Gerenciador::getMouseState()
+int GerenciadorBotoes::getMouseState()
 {
     return mouseState;
 }
 
-int Gerenciador::getMouseY()
+int GerenciadorBotoes::getMouseY()
 {
     return mouseY;
 }
 
-int Gerenciador::getMouseX()
+int GerenciadorBotoes::getMouseX()
 {
     return mouseX;
 }
 
-void Gerenciador::verificaMouseEmCima_botoes()
+void GerenciadorBotoes::verificaMouseEmCima_botoes()
 {
     if(bt->Colidiu( getMouseX(),  getMouseY()))
     {
@@ -60,7 +55,7 @@ void Gerenciador::verificaMouseEmCima_botoes()
     }
 }
 
-void Gerenciador::verificaclick()
+void GerenciadorBotoes::verificaclick()
 {
     if(bt->Colidiu( getMouseX(),  getMouseY()) && getMouseState() == 0)
     {
@@ -80,17 +75,10 @@ void Gerenciador::verificaclick()
     }
 }
 
-void Gerenciador::InitCanvas()
+void GerenciadorBotoes::InitCanvas()
 {
-
-    //CV::init(&screenWidth, &screenHeight, "Titulo da Janela: Canvas 2D - Pressione 1, 2, 3");
-    //img01= new Bmp(".\\gl_1_canvasGlut\\resources\\img01.bmp");*
-    //img01->convertBGRtoRGB();
-
-    bt = new Botao(200, 400,  180, 80, "teste illuminati");
+    bt = new Botao(500, 580,  180, 80, "teste illuminati");
     bt1 = new Botao(500, 480,  180, 80, "Sou um botao 2");
     bt2 = new Botao(500, 380,  180, 80, "Sou um botao 3");
     bt3 = new Botao(500, 280,  180, 80, "Sou um botao 4");
-
-    //CV::run();
 }
