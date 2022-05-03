@@ -20,6 +20,7 @@ public:
     void Render(int mouse_x, int mouse_y, int mouse_state);
     void verifica_clickImagem();
     void desenhaImagem();
+    void desenhaImagemFlipX();
     int getMouseState();
     int getMouseY();
     int getMouseX();

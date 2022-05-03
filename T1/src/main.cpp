@@ -27,12 +27,10 @@
 #include "Botao.h"
 #include "controladorBotoes.h"
 #include "ControladorImagem.h"
-//#include "mouse.h"
-//#include"gerenciador.h"
+
 Bmp* img01;
 
 //variavel global para selecao do que sera exibido na canvas.
-//Gerenciador* gen = new Gerenciador();
 int opcao  = 50;
 int screenWidth = 700, screenHeight = 700; //largura e altura inicial da tela . Alteram com o redimensionamento de tela.
 
@@ -143,12 +141,6 @@ int offsetx, offsety; //faz com que a imagem não seja desenhada sempre partindo 
 
 void render()
 {
-    //CV::text(200,650,"Trabalho 1 CG");
-
-    /*desenhaImagem();
-
-    verifica_clickImagem();*/
-
     imagem->Render(mouseX, mouseY, state1);
     botao->Render(mouseX, mouseY, state1);
 }
@@ -156,11 +148,6 @@ void render()
 //funcao chamada toda vez que uma tecla for pressionada.
 void keyboard(int key)
 {
-    if( key < 200 )
-    {
-        opcao = key;
-    }
-
     switch(key)
     {
     case 27:
@@ -178,26 +165,14 @@ void keyboardUp(int key)
 //funcao para tratamento de mouse: cliques, movimentos e arrastos
 void mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    mouseX = x; //guarda as coordenadas do mouse para exibir dentro da render()
+    mouseX = x; //guarda as coordenadas do mouse para exibir dentro da render() dos controladores
     mouseY = y;
-    //printf("Valor do state %d \n", state);
     state1 = state;
-    /*Mouse->setButton(button);
-    Mouse->setState(state);
-    Mouse->setWheel(wheel);
-    Mouse->setDirection(direction);
-    Mouse->setX(x);
-    Mouse->sety(y);*/
 }
 
 int main()
 {
     imagem->InitCanvas();
-    /*CV::init(&screenWidth, &screenHeight, "Titulo da Janela: Canvas 2D - Pressione 1, 2, 3");
-    img01= new Bmp(".\\T1\\resources\\img01.bmp");
-    img01->convertBGRtoRGB();*/
-
-
     botao->InitCanvas();
 
     CV::run();

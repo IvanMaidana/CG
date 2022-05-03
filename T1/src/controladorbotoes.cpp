@@ -20,21 +20,6 @@ void GerenciadorBotoes::desenhaBotoes()
     bt3->Render();
 }
 
-int GerenciadorBotoes::getMouseState()
-{
-    return mouseState;
-}
-
-int GerenciadorBotoes::getMouseY()
-{
-    return mouseY;
-}
-
-int GerenciadorBotoes::getMouseX()
-{
-    return mouseX;
-}
-
 void GerenciadorBotoes::verificaMouseEmCima_botoes()
 {
     if(bt->Colidiu( getMouseX(),  getMouseY()))
@@ -59,7 +44,7 @@ void GerenciadorBotoes::verificaclick()
 {
     if(bt->Colidiu( getMouseX(),  getMouseY()) && getMouseState() == 0)
     {
-        printf("clicou no primeiro botao\n");
+        imagem->desenhaImagemFlipX();
     }
     else if(bt1->Colidiu( getMouseX(),  getMouseY()) && getMouseState()== 0)
     {
@@ -75,10 +60,25 @@ void GerenciadorBotoes::verificaclick()
     }
 }
 
+int GerenciadorBotoes::getMouseState()
+{
+    return mouseState;
+}
+
+int GerenciadorBotoes::getMouseY()
+{
+    return mouseY;
+}
+
+int GerenciadorBotoes::getMouseX()
+{
+    return mouseX;
+}
+
 void GerenciadorBotoes::InitCanvas()
 {
-    bt = new Botao(500, 580,  180, 80, "teste illuminati");
-    bt1 = new Botao(500, 480,  180, 80, "Sou um botao 2");
+    bt = new Botao(500, 580,  180, 80, "Flip X");
+    bt1 = new Botao(500, 480,  180, 80, "Flip Y");
     bt2 = new Botao(500, 380,  180, 80, "Sou um botao 3");
     bt3 = new Botao(500, 280,  180, 80, "Sou um botao 4");
 }

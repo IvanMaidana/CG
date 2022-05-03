@@ -1,5 +1,21 @@
 #include"ControladorImagem.h"
 
+/*void Bmp::initPixel2dArray()
+{
+    int tempX = 0;
+
+    for(int y=0; y<height; y++)
+    {
+        for(int x=0; x<width*3; x+=3)
+        {
+            int pos = y*bytesPerLine + x;
+            imageData[tempX][y] = new Pixel(data[pos]/255.0, data[pos+1]/255.0, data[pos+2]/255.0);
+            tempX++;
+        }
+        tempX = 0;
+    }
+}*/
+
 void ControladorImagem::Render(int mouse_x, int mouse_y, int mouse_state)
 {
     mouseX = mouse_x;
@@ -82,6 +98,28 @@ void ControladorImagem::desenhaImagem()
         }
         print_x = 0;
     }
+}
+
+void ControladorImagem::desenhaImagemFlipX()
+{
+    printf("entrou aquii flip x\n");
+    uchar* data = img01->getImage();
+    int height = img01->height;
+    int width = img01->width;
+    int bytesPerLine = img01->bytesPerLine;
+      // FLIP X
+   for(int y=0; y<height; y++)
+    {
+        for(int x=width*3; x>=0; x-=3)
+        {
+            int pos = y*bytesPerLine + x;
+            CV::color(data[pos]/255.0, data[pos+1]/255.0, data[pos+2]/255.0);
+            CV::point(initial_x+ print_x, initial_y + y);
+            print_x++;
+        }
+        print_x = 0;
+    }
+    print_y = height;
 }
 
 void ControladorImagem::verifica_clickImagem()

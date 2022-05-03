@@ -7,7 +7,7 @@
 #include"botao.h"
 #include "gl_canvas2d.h"
 #include"bmp.h"
-//#include "Mouse.h"
+#include"ControladorImagem.h"
 
 class GerenciadorBotoes
 {
@@ -22,6 +22,7 @@ private:
     // int mx, my;                //variaveis do mouse para poder exibir dentro da render().
 
 public:
+    ControladorImagem *imagem = new ControladorImagem;
     Botao   *bt = NULL; //se a aplicacao tiver varios botoes, sugiro implementar um manager de botoes.
     Botao   *bt1 = NULL;
     Botao   *bt2 = NULL;
